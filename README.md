@@ -2,10 +2,11 @@
 
 <p align="center">
   <b>A Lightweight, High-Performance Typora-Style Markdown Desktop Editor</b><br>
-  一款对标 Typora 体验、极致追求轻量与读写效率的 Markdown 独立桌面软件
+  涓€娆惧鏍?Typora 浣撻獙銆佹瀬鑷磋拷姹傝交閲忎笌璇诲啓鏁堢巼鐨?Markdown 鐙珛妗岄潰杞欢
 </p>
 
 <p align="center">
+  <img src="https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-brightgreen" alt="Platforms">
   <img src="https://img.shields.io/badge/Release_Size-4.4MB-brightgreen" alt="Size">
   <img src="https://img.shields.io/badge/Startup-<250ms-blue" alt="Startup">
   <img src="https://img.shields.io/badge/Architecture-Tauri_v2_+_Rust_+_Svelte_5-orange" alt="Tech">
@@ -14,96 +15,77 @@
 
 ---
 
-## 🌟 核心特性 (Key Features)
+## 馃専 鏍稿績鐗规€?(Key Features)
 
-- **🎨 Typora 式就地排版 (Live Preview)**
-  单画布无界排版体验。光标所在行保持原生 Markdown 语法符号方便精准修改；光标移开后瞬时折叠语法符号，呈现清晰优雅的排版效果。
-- **🛡️ 纯文本零格式污染**
-  放弃破坏性的富文本 AST 转换方案，底层存储始终为 **100% 原始 Markdown 纯文本**，绝不擅自篡改你的空格、缩进与换行。
-- **⚡ 极致轻量与启动响应**
-  单文件绿色版体积仅 **4.4 MB**，安装包仅 **1.5 MB**（相较传统 Electron 动辄 100MB+ 体积瘦身 90% 以上）。首屏毫秒级冷启动。
-- **💾 原生原子安全 I/O (Atomic Write)**
-  写入时先落盘至校验临时文件，再执行原子重命名覆盖，杜绝意外断电或程序崩溃导致原文档变空。支持失去焦点自动保存（Auto-save on blur）。
-- **📌 历史会话无缝记忆**
-  自动持久化记录最近编辑的文件。下次启动软件时，优先自动恢复上次编辑的文件与大纲状态。
-- **🗂️ 毫秒级目录大纲**
-  内置抽屉式大纲视图，毫秒级提取文档中的各级标题树，支持悬浮展示与点击平滑定位跳转。
-- **⌨️ 键盘优先驱动 (Keyboard-First)**
-  提供全局命令面板 (`Ctrl+P`) 与丰富的 Markdown 快捷按键体系，双手无需离开键盘。
-
+- **馃帹 Typora 寮忓氨鍦版帓鐗?(Live Preview)**
+  鍗曠敾甯冩棤鐣屾帓鐗堜綋楠屻€傚厜鏍囨墍鍦ㄨ淇濇寔鍘熺敓 Markdown 璇硶绗﹀彿鏂逛究绮惧噯淇敼锛涘厜鏍囩Щ寮€鍚庣灛鏃舵姌鍙犺娉曠鍙凤紝鍛堢幇娓呮櫚浼橀泤鐨勬帓鐗堟晥鏋溿€?- **馃洝锔?绾枃鏈浂鏍煎紡姹℃煋**
+  鏀惧純鐮村潖鎬х殑瀵屾枃鏈?AST 杞崲鏂规锛屽簳灞傚瓨鍌ㄥ缁堜负 **100% 鍘熷 Markdown 绾枃鏈?*锛岀粷涓嶆搮鑷鏀逛綘鐨勭┖鏍笺€佺缉杩涗笌鎹㈣銆?- **鈿?鏋佽嚧杞婚噺涓庡惎鍔ㄥ搷搴?*
+  鍗曟枃浠剁豢鑹茬増浣撶Н浠?**4.4 MB**锛屽畨瑁呭寘浠?**1.5 MB**锛堢浉杈冧紶缁?Electron 鍔ㄨ緞 100MB+ 浣撶Н鐦﹁韩 90% 浠ヤ笂锛夈€傞灞忔绉掔骇鍐峰惎鍔ㄣ€?- **馃捑 鍘熺敓鍘熷瓙瀹夊叏 I/O (Atomic Write)**
+  鍐欏叆鏃跺厛钀界洏鑷虫牎楠屼复鏃舵枃浠讹紝鍐嶆墽琛屽師瀛愰噸鍛藉悕瑕嗙洊锛屾潨缁濇剰澶栨柇鐢垫垨绋嬪簭宕╂簝瀵艰嚧鍘熸枃妗ｅ彉绌恒€傛敮鎸佸け鍘荤劍鐐硅嚜鍔ㄤ繚瀛橈紙Auto-save on blur锛夈€?- **馃搶 鍘嗗彶浼氳瘽鏃犵紳璁板繂**
+  鑷姩鎸佷箙鍖栬褰曟渶杩戠紪杈戠殑鏂囦欢銆備笅娆″惎鍔ㄨ蒋浠舵椂锛屼紭鍏堣嚜鍔ㄦ仮澶嶄笂娆＄紪杈戠殑鏂囦欢涓庡ぇ绾茬姸鎬併€?- **馃梻锔?姣绾х洰褰曞ぇ绾?*
+  鍐呯疆鎶藉眽寮忓ぇ绾茶鍥撅紝姣绾ф彁鍙栨枃妗ｄ腑鐨勫悇绾ф爣棰樻爲锛屾敮鎸佹偓娴睍绀轰笌鐐瑰嚮骞虫粦瀹氫綅璺宠浆銆?- **鈱笍 閿洏浼樺厛椹卞姩 (Keyboard-First)**
+  鎻愪緵鍏ㄥ眬鍛戒护闈㈡澘 (`Ctrl+P`) 涓庝赴瀵岀殑 Markdown 蹇嵎鎸夐敭浣撶郴锛屽弻鎵嬫棤闇€绂诲紑閿洏銆?
 ---
 
-## ⌨️ 快捷键速查表 (Keyboard Shortcuts)
+## 鈱笍 蹇嵎閿€熸煡琛?(Keyboard Shortcuts)
 
-| 快捷键 | 动作说明 |
+| 蹇嵎閿?| 鍔ㄤ綔璇存槑 |
 | :--- | :--- |
-| **`Ctrl + S`** | 保存当前文件（原子写入防丢） |
-| **`Ctrl + O`** | 唤起系统原生文件选择器打开文档 |
-| **`Ctrl + N`** | 新建空白 Markdown 文档 |
-| **`Ctrl + P`** | 呼出全局命令面板（模糊搜索与操作执行） |
-| **`Ctrl + /`** | 一键切换就地排版 / 极客纯源码模式 |
-| **`Ctrl + Shift + O`** | 展开 / 收起实时目录大纲抽屉 |
-| **`Ctrl + B`** | 粗体选中文本 (`**加粗**`) |
-| **`Ctrl + I`** | 斜体选中文本 (`*斜体*`) |
-| **`Ctrl + K`** | 插入超链接 (`[链接文本](url)`) |
-| **`Ctrl + Shift + D`** | 插入当前精确时间戳 (`YYYY-MM-DD HH:mm:ss`) |
+| **`Ctrl + S`** | 淇濆瓨褰撳墠鏂囦欢锛堝師瀛愬啓鍏ラ槻涓級 |
+| **`Ctrl + O`** | 鍞よ捣绯荤粺鍘熺敓鏂囦欢閫夋嫨鍣ㄦ墦寮€鏂囨。 |
+| **`Ctrl + N`** | 鏂板缓绌虹櫧 Markdown 鏂囨。 |
+| **`Ctrl + P`** | 鍛煎嚭鍏ㄥ眬鍛戒护闈㈡澘锛堟ā绯婃悳绱笌鎿嶄綔鎵ц锛?|
+| **`Ctrl + /`** | 涓€閿垏鎹㈠氨鍦版帓鐗?/ 鏋佸绾簮鐮佹ā寮?|
+| **`Ctrl + Shift + O`** | 灞曞紑 / 鏀惰捣瀹炴椂鐩綍澶х翰鎶藉眽 |
+| **`Ctrl + B`** | 绮椾綋閫変腑鏂囨湰 (`**鍔犵矖**`) |
+| **`Ctrl + I`** | 鏂滀綋閫変腑鏂囨湰 (`*鏂滀綋*`) |
+| **`Ctrl + K`** | 鎻掑叆瓒呴摼鎺?(`[閾炬帴鏂囨湰](url)`) |
+| **`Ctrl + Shift + D`** | 鎻掑叆褰撳墠绮剧‘鏃堕棿鎴?(`YYYY-MM-DD HH:mm:ss`) |
 
 ---
 
-## 🛠️ 技术架构 (Technology Stack)
+## 馃洜锔?鎶€鏈灦鏋?(Technology Stack)
 
 ```
-┌────────────────────────────────────────────────────────┐
-│                   前端 UI (Svelte 5)                   │
-│   CodeMirror 6 虚拟滚动画布 + Range Decoration 排版引擎 │
-│           气泡工具栏 + 目录大纲抽屉 + 命令面板            │
-└───────────────────────────┬────────────────────────────┘
-                            │ Tauri IPC (零开销原生通道)
-┌───────────────────────────▼────────────────────────────┐
-│                  Rust 原生核心层 (Native)               │
-│      极速 I/O 引擎 + 原子写入 + 命令行/双击关联捕获        │
-│                系统级配置持久化 (last_file)             │
-└────────────────────────────────────────────────────────┘
-```
+鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?鈹?                  鍓嶇 UI (Svelte 5)                   鈹?鈹?  CodeMirror 6 铏氭嫙婊氬姩鐢诲竷 + Range Decoration 鎺掔増寮曟搸 鈹?鈹?          姘旀场宸ュ叿鏍?+ 鐩綍澶х翰鎶藉眽 + 鍛戒护闈㈡澘            鈹?鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?                            鈹?Tauri IPC (闆跺紑閿€鍘熺敓閫氶亾)
+鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈻尖攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?鈹?                 Rust 鍘熺敓鏍稿績灞?(Native)               鈹?鈹?     鏋侀€?I/O 寮曟搸 + 鍘熷瓙鍐欏叆 + 鍛戒护琛?鍙屽嚮鍏宠仈鎹曡幏        鈹?鈹?               绯荤粺绾ч厤缃寔涔呭寲 (last_file)             鈹?鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?```
 
 - **Native Host**: [Tauri v2](https://v2.tauri.app/) + [Rust](https://www.rust-lang.org/)
 - **UI Framework**: [Svelte 5](https://svelte.dev/) + TypeScript
-- **Editor Engine**: [CodeMirror 6](https://codemirror.net/) (按需模块化，虚拟视口渲染)
-- **Styling**: 精调 Typora 经典排版主题 (Vanilla CSS, 零外部厚重 CSS 框架)
+- **Editor Engine**: [CodeMirror 6](https://codemirror.net/) (鎸夐渶妯″潡鍖栵紝铏氭嫙瑙嗗彛娓叉煋)
+- **Styling**: 绮捐皟 Typora 缁忓吀鎺掔増涓婚 (Vanilla CSS, 闆跺閮ㄥ帤閲?CSS 妗嗘灦)
 
 ---
 
-## 🚀 本地开发与构建 (Getting Started)
+## 馃殌 鏈湴寮€鍙戜笌鏋勫缓 (Getting Started)
 
-### 环境依赖
-- [Node.js](https://nodejs.org/) (推荐 LTS 20+)
+### 鐜渚濊禆
+- [Node.js](https://nodejs.org/) (鎺ㄨ崘 LTS 20+)
 - [Rust](https://rustup.rs/) (Stable toolchain)
-- Windows SDK / Visual Studio C++ 构建工具 (Windows 平台)
+- Windows SDK / Visual Studio C++ 鏋勫缓宸ュ叿 (Windows 骞冲彴)
 
-### 安装与运行
-```bash
-# 1. 克隆代码仓库
+### 瀹夎涓庤繍琛?```bash
+# 1. 鍏嬮殕浠ｇ爜浠撳簱
 git clone https://github.com/Aaliceanna/WRMD.git
 cd WRMD
 
-# 2. 安装前端依赖
+# 2. 瀹夎鍓嶇渚濊禆
 npm install
 
-# 3. 启动本地开发环境
-npm run tauri dev
+# 3. 鍚姩鏈湴寮€鍙戠幆澧?npm run tauri dev
 ```
 
-### 生产打包
+### 鐢熶骇鎵撳寘
 ```bash
-# 生成独立可执行程序 (exe)
+# 鐢熸垚鐙珛鍙墽琛岀▼搴?(exe)
 npm run tauri build -- --no-bundle
 
-# 生成 Windows 安装向导包 (NSIS / MSI)
+# 鐢熸垚 Windows 瀹夎鍚戝鍖?(NSIS / MSI)
 npm run tauri build
 ```
 
 ---
 
-## 📄 开源许可证
+## 馃搫 寮€婧愯鍙瘉
 
-本项目基于 [MIT License](LICENSE) 开源。
+鏈」鐩熀浜?[MIT License](LICENSE) 寮€婧愩€
