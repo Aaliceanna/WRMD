@@ -1,12 +1,8 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { onMount, tick } from "svelte";
+  import type { CommandAction } from "$lib/types";
 
-  export interface CommandAction {
-    id: string;
-    title: string;
-    shortcut?: string;
-    action: () => void;
-  }
+  export type { CommandAction };
 
   export let isOpen: boolean = false;
   export let actions: CommandAction[] = [];
@@ -56,8 +52,20 @@
 <svelte:window on:keydown={handleKeyDown} />
 
 {#if isOpen}
-  <div class="palette-backdrop" on:click={onClose}>
-    <div class="palette-modal" on:click|stopPropagation>
+  <div
+    class="palette-backdrop"
+    role="presentation"
+    on:click={onClose}
+    on:keydown={(e) => e.key === "Escape" && onClose()}
+  >
+    <div
+      class="palette-modal"
+      role="dialog"
+      aria-modal="true"
+      tabindex="-1"
+      on:click|stopPropagation
+      on:keydown|stopPropagation
+    >
       <div class="input-wrapper">
         <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="11" cy="11" r="8"></circle>
@@ -72,14 +80,17 @@
         <span class="esc-hint">ESC 退出</span>
       </div>
 
-      <div class="action-list">
+      <div class="action-list" role="listbox">
         {#if filteredActions.length === 0}
           <div class="empty-tip">未找到匹配的命令</div>
         {:else}
           {#each filteredActions as item, i}
-            <div
+            <button
+              type="button"
               class="action-item"
               class:selected={i === selectedIndex}
+              role="option"
+              aria-selected={i === selectedIndex}
               on:mouseenter={() => (selectedIndex = i)}
               on:click={() => { item.action(); onClose(); }}
             >
@@ -87,7 +98,7 @@
               {#if item.shortcut}
                 <kbd class="item-shortcut">{item.shortcut}</kbd>
               {/if}
-            </div>
+            </button>
           {/each}
         {/if}
       </div>
@@ -161,6 +172,11 @@
     font-size: 13px;
   }
   .action-item {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    text-align: left;
     display: flex;
     align-items: center;
     justify-content: space-between;

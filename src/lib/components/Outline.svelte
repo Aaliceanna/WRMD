@@ -1,10 +1,7 @@
-﻿<script lang="ts">
-  export interface HeadingItem {
-    level: number;
-    text: string;
-    line: number;
-    pos: number;
-  }
+<script lang="ts">
+  import type { HeadingItem } from "$lib/types";
+
+  export type { HeadingItem };
 
   export let headings: HeadingItem[] = [];
   export let isOpen: boolean = false;
@@ -24,12 +21,15 @@
       {:else}
         <ul class="heading-list">
           {#each headings as item}
-            <li
-              class="heading-item level-{item.level}"
-              on:click={() => onSelectHeading(item)}
-            >
-              <span class="dot"></span>
-              <span class="text">{item.text}</span>
+            <li>
+              <button
+                type="button"
+                class="heading-item level-{item.level}"
+                on:click={() => onSelectHeading(item)}
+              >
+                <span class="dot"></span>
+                <span class="text">{item.text}</span>
+              </button>
             </li>
           {/each}
         </ul>
@@ -91,6 +91,11 @@
     margin: 0;
   }
   .heading-item {
+    width: 100%;
+    border: none;
+    background: transparent;
+    text-align: left;
+    font-family: inherit;
     padding: 5px 12px;
     display: flex;
     align-items: center;

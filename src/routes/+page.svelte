@@ -4,14 +4,16 @@
   import { EditorState, Compartment } from "@codemirror/state";
   import { defaultKeymap, history, historyKeymap } from "@codemirror/commands";
   import { markdown } from "@codemirror/lang-markdown";
+  import { GFM } from "@lezer/markdown";
   import { typoraTheme } from "$lib/editor/typora-theme";
   import { createLivePreviewPlugin } from "$lib/editor/live-preview";
   import TitleBar from "$lib/components/TitleBar.svelte";
-  import Outline, { type HeadingItem } from "$lib/components/Outline.svelte";
-  import CommandPalette, { type CommandAction } from "$lib/components/CommandPalette.svelte";
+  import Outline from "$lib/components/Outline.svelte";
+  import CommandPalette from "$lib/components/CommandPalette.svelte";
+  import type { HeadingItem, CommandAction } from "$lib/types";
 
   // 编辑器 DOM 容器与实例
-  let editorContainer: HTMLDivElement;
+  let editorContainer: HTMLElement;
   let view: EditorView | null = null;
 
   // 状态变量
@@ -287,7 +289,7 @@
       doc: defaultDoc,
       extensions: [
         history(),
-        markdown(),
+        markdown({ extensions: [GFM] }),
         typoraTheme,
         livePreviewCompartment.of(livePlugin),
         keymap.of([...defaultKeymap, ...historyKeymap]),
